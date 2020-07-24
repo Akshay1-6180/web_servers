@@ -1,54 +1,55 @@
-html {
-    height:100%;
-  }
-  
-  body {
-    margin:0;
-  }
-  
-  .bg {
-    animation:slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
-    bottom:0;
-    left:-50%;
-    opacity:.5;
-    position:fixed;
-    right:-50%;
-    top:0;
-    z-index:-1;
-  }
-  
-  .bg2 {
-    animation-direction:alternate-reverse;
-    animation-duration:4s;
-  }
-  
-  .bg3 {
-    animation-duration:5s;
-  }
-  
-  .content {
-    background-color:rgba(255,255,255,.8);
-    border-radius:.25em;
-    box-shadow:0 0 .25em rgba(0,0,0,.25);
-    box-sizing:border-box;
-    left:50%;
-    padding:10vmin;
-    position:fixed;
-    text-align:center;
-    top:50%;
-    transform:translate(-50%, -50%);
-  }
-  
-  h1 {
-    font-family:monospace;
-  }
-  
-  @keyframes slide {
-    0% {
-      transform:translateX(-25%);
-    }
-    100% {
-      transform:translateX(25%);
-    }
-  }
+
+.canvas {
+    background: black;
+    height: 100%;
+    width: 20%;
+}
+
+
+.d-flex {
+    height: 100%;
+}
+
+.navbar {
+    font-size: larger;
+    font-family: 'Nunito', sans-serif;
+}
+
+.nav-link {
+    color: blueviolet;
+
+}
+
+#footer {
+    text-align: center;
+    background-color: teal;
+    color: aqua;
+    padding: 10px 0;
+    margin: 0 0;
+}
+
+.jumbotron{
+    margin-bottom: 0;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+#link {
+    color: orange;
+}
+
+#link:hover {
+    color: wheat;
+}
+
+#logoend {
+    filter: invert();
+    text-align: center;
+    width: 10%;
+    height: 10%;
+    display: block;
+    margin: 0 auto;
+}
+
+#header {
+    background: url("https://images.unsplash.com/photo-1512295767273-ac109ac3acfa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80") center center / cover no-repeat;
+    height: 100%;
+}
