@@ -1,20 +1,7 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
-
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
 
 .row {
-    background: -webkit-gradient(linear, left top, right top, from(#833ab4), color-stop(#fd1d1d), to(#fcb045));
     background: -o-linear-gradient(left, #833ab4, #fd1d1d, #fcb045);
+    background: -webkit-gradient(linear, left top, right top, from(#833ab4), color-stop(#fd1d1d), to(#fcb045));
     background: linear-gradient(to right, #833ab4, #fd1d1d, #fcb045);
 }
 #page {
