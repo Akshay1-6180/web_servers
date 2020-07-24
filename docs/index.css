@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 
 .canvas {
     background: black;
@@ -30,6 +37,8 @@
 
 .jumbotron{
     margin-bottom: 0;
+    background: -webkit-gradient(linear, left top, right top, from(#0f2027), color-stop(#203a43), to(#2c5364));
+    background: -o-linear-gradient(left, #0f2027, #203a43, #2c5364);
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 #link {
@@ -41,7 +50,8 @@
 }
 
 #logoend {
-    filter: invert();
+    -webkit-filter: invert();
+            filter: invert();
     text-align: center;
     width: 10%;
     height: 10%;
