@@ -1,4 +1,4 @@
-var text="SERVER MONKS"
+var text=" SERVER MONKS"
 var speed = 50
 var i = 0;
 var heading = ""
