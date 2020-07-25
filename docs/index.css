@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 
 .row {
     background: -o-linear-gradient(left, #833ab4, #fd1d1d, #fcb045);
@@ -78,7 +85,8 @@ div.item i {
 
 .card-img-top{
     border-radius: 20%;
-    filter: drop-shadow(5px 5px 5px #222);
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+            filter: drop-shadow(5px 5px 5px #222);
 } 
 
 .blurb {
@@ -156,9 +164,12 @@ div.item i {
     display:inline-block;
     margin-left:3px;
     background-color:grey;
-    animation-name:blink;
-    animation-duration:0.5s;
-    animation-iteration-count: infinite;
+    -webkit-animation-name:blink;
+            animation-name:blink;
+    -webkit-animation-duration:0.5s;
+            animation-duration:0.5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
   }
   h1.cursor::after {
     height:8vw;
@@ -167,6 +178,21 @@ div.item i {
   p.cursor::after {
     height:200px;
     width:6px;
+  }
+  
+  @-webkit-keyframes blink {
+    0% {
+      opacity:1;
+    }
+    49% {
+      opacity:1;
+    }
+    50% {
+      opacity:0;
+    }
+    100% {
+      opacity:0;
+    }
   }
   
   @keyframes blink {
