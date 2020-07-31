@@ -1,7 +1,10 @@
+
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 html {
@@ -15,13 +18,21 @@ a{
 }
 nav{
     list-style: none;
-    animation-name: fadein;
-    animation-duration: 1s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
+    -webkit-animation-name: fadein;
+            animation-name: fadein;
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
     opacity: 0;
+    -webkit-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
     transition: background-color 0.5s;
-    transition-timing-function: ease-in;
+    -webkit-transition-timing-function: ease-in;
+         -o-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
 }
 .navscroll {
     background-color: black;
@@ -31,6 +42,11 @@ nav{
     position: absolute;
     width: 100%;
     color: #fff;
+}
+@-webkit-keyframes fadein {
+    100% {
+        opacity: 1;
+    }
 }
 @keyframes fadein {
     100% {
@@ -67,7 +83,9 @@ a:hover {
 }
 .content {
     position: relative;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     text-align: center;
     min-height: 100vh;
     color: #fff;
@@ -75,7 +93,15 @@ a:hover {
 .content-area {
     opacity:0;
     margin-top: 100px;
-    animation: 1s slideup 1s forwards;
+    -webkit-animation: 1s slideup 1s forwards;
+            animation: 1s slideup 1s forwards;
+}
+
+@-webkit-keyframes slideup{
+    100%{
+        opacity: 1;
+        margin-top: 0;
+    }
 }
 
 @keyframes slideup{
@@ -141,8 +167,17 @@ section p {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: 1s imageup 1s forwards;
-    animation-timing-function: linear;
+    -webkit-animation: 1s imageup 1s forwards;
+            animation: 1s imageup 1s forwards;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+}
+
+@-webkit-keyframes imageup {
+100% {
+    opacity: 1;
+}
+
 }
 
 @keyframes imageup {
@@ -224,3 +259,4 @@ footer p {
 footer i {
     margin:10px 10px;
 }
+
