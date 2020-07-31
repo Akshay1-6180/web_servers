@@ -16,6 +16,8 @@ color: #555;
 a{
     text-decoration: none;
 }
+
+img {max-width:100%;}
 nav{
     list-style: none;
     -webkit-animation-name: fadein;
