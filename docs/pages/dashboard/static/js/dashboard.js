@@ -1,6 +1,8 @@
-$(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
+sidedown()
+
+
+function sidedown(){
+  $('#sidebar').toggleClass('active');
         if($('#life').text()== "")
         {
             $('#life').html('<i class="fab fa-pagelines move"></i>LIFE DETECTION');
@@ -15,125 +17,141 @@ $(document).ready(function () {
             $('#auto').html("<i class='fas fa-dharmachakra move'></i>");
             $('#comm').html("<i class='fas fa-signal move'></i>");
         }
-    });
-});
-window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"><\/script>'
-        )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"><\/script>'
-        )
-      window.Promise ||
-        document.write(
-          '<script src="https://cdn.jsdelivr.net/npm/findindex_polyfill_mdn"><\/script>'
-        )
 
-        var lastDate = 0;
-        var data = []
-        var TICKINTERVAL = 86400000
-        let XAXISRANGE = 777600000
-        function getDayWiseTimeSeries(baseval, count, yrange) {
-          var i = 0;
-          while (i < count) {
-            var x = baseval;
-            var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
-        
-            data.push({
-              x, y
-            });
-            lastDate = baseval
-            baseval += TICKINTERVAL;
-            i++;
-          }
-        }
-        
-        getDayWiseTimeSeries(new Date('11 Feb 2017 GMT').getTime(), 10, {
-          min: 10,
-          max: 90
-        })
-        
-        function getNewSeries(baseval, yrange) {
-          var newDate = baseval + TICKINTERVAL;
-          lastDate = newDate
-        
-          for(var i = 0; i< data.length - 10; i++) {
-            // IMPORTANT
-            // we reset the x and y of the data which is out of drawing area
-            // to prevent memory leaks
-            data[i].x = newDate - XAXISRANGE - TICKINTERVAL
-            data[i].y = 0
-          }
-        
-          data.push({
-            x: newDate,
-            y: Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min
-          })
-        }
-        
-        function resetData(){
-          // Alternatively, you can also reset the data at certain intervals to prevent creating a huge series 
-          data = data.slice(data.length - 10, data.length);
-        }
-var options = {
-    series: [{
-    data: data.slice()
-  }],
-    chart: {
-    id: 'realtime',
-    height: 350,
-    type: 'line',
-    animations: {
-      enabled: true,
-      easing: 'linear',
-      dynamicAnimation: {
-        speed: 1000
-      }
-    },
-    toolbar: {
-      show: false
-    },
-    zoom: {
-      enabled: false
-    }
-  },
-  dataLabels: {
-    enabled: false
-  },
-  stroke: {
-    curve: 'smooth'
-  },
-  title: {
-    text: 'Dynamic Updating Chart',
-    align: 'left'
-  },
-  markers: {
-    size: 0
-  },
-  xaxis: {
-    type: 'datetime',
-    range: XAXISRANGE,
-  },
-  yaxis: {
-    max: 100
-  },
-  legend: {
-    show: false
-  },
-  };
+}
 
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-  chart.render();
+$(document).ready(function () {
+    $('#sidebarCollapse').on('click', sidedown);
+})
+
+//AJAX CODE
+
+$("#forward").click(function(){
+  $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:5000/forward",
+      crossDomain: true,
+      headers : {'Access-Control-Allow-Origin' : "http://127.0.0.1:5000/forward"}
+  })
+  .done(function(data){
+      console.log(data)
+  })
+  .fail(function(data){
+      console.log("fail")
+  })
+})
+
+$("#backward").click(function(){
+  $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:5000/backward",
+      dataType: 'json'
+  })
+  .done(function(data){
+      console.log(data)
+  })
+  .fail(function(data){
+      console.log("fail")
+  })
+})
+
+$("#left").click(function(){
+  $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:5000/left",
+      dataType: 'json'
+  })
+  .done(function(data){
+      console.log(data)
+  })
+  .fail(function(data){
+      console.log("fail")
+  })
+})
+
+$("#right").click(function(){
+  $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:5000/right",
+      dataType: 'json'
+  })
+  .done(function(data){
+      console.log(data)
+  })
+  .fail(function(data){
+      console.log("fail")
+  })
+})
+
+$("#stop").click(function(){
+  $.ajax({
+      type: "GET",
+      url: "http://127.0.0.1:5000/stop",
+      dataType: 'json'
+  })
+  .done(function(data){
+      console.log(data)
+  })
+  .fail(function(data){
+      console.log("fail")
+  })
+})
 
 
-  window.setInterval(function () {
-  getNewSeries(lastDate, {
-    min: 10,
-    max: 90
+$("#video1").click(function(){
+  $.ajax({
+      type: "POST",
+      url: "http://127.0.0.1:5000/video",
+      headers : {'Access-Control-Allow-Origin' : "http://127.0.0.1:5000/video"}
+  })
+  .done(function(data){
+      console.log(data)
+      $('#videostream1').attr('src',"http://127.0.0.1:5000/video_feed")
+  })
+  .fail(function(data){
+      console.log("fail")
+  })
+})
+$("#video2").click(function(){
+    $.ajax({
+        type: "POST",
+        url: "http://127.0.0.1:5000/video",
+        headers : {'Access-Control-Allow-Origin' : "http://127.0.0.1:5000/video"}
+    })
+    .done(function(data){
+        console.log(data)
+        $('#videostream2').attr('src',"http://127.0.0.1:5000/video_feed")
+    })
+    .fail(function(data){
+        console.log("fail")
+    })
   })
 
-  chart.updateSeries([{
-    data: data
-  }])
-}, 1000)
+  $("#graph").click(function(){
+    var ic = 0;
+    function getData(){
+      var d1 = [];
+      for (var i = 0 ; i < 19 ; i += 0.1)
+        d1.push([i, Math.sin(i - ic)]);
+      if (ic==12.5) {ic=0;} else {ic = ic + 0.05;}
+      ic = Math.round(ic*100)/100;
+      return d1;
+    }
+    function update(){
+        plot.setData([getData()]);
+        plot.draw();
+      }      
+    
+    $("#graphs").html("<div id='myChart' style='width:640px;height:300px;'></div> <div class='card-body d-flex justify-content-center'><button id='graph' type='button' class='py-3 d-flex align-items-center btn btn-success'>LIVE GRAPH</button></div>")
+        
+        
+        var plot = $.plot($("#myChart"), [ getData()]);
+        var int = self.setInterval(function(){update()},50);
+  })
+
+
+//GRAPH POLTING CODE USING D3 AND JAVASCRIPT
+
+
+
+
